@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Desafio3V2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Desafio3V2.Controllers
 {
@@ -20,6 +21,8 @@ namespace Desafio3V2.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "Administrador,Usuario")]
+
         // GET: api/Equipos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EquipoT>>> GetEquipo()
@@ -27,6 +30,7 @@ namespace Desafio3V2.Controllers
             return await _context.Equipo.ToListAsync();
         }
 
+        [Authorize(Roles = "Administrador,Usuario")]
         // GET: api/Equipos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<EquipoT>> GetEquipoT(int id)
@@ -41,6 +45,7 @@ namespace Desafio3V2.Controllers
             return equipoT;
         }
 
+        [Authorize(Roles = "Administrador")]
         // PUT: api/Equipos/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -72,6 +77,7 @@ namespace Desafio3V2.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = "Administrador")]
         // POST: api/Equipos
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -83,6 +89,7 @@ namespace Desafio3V2.Controllers
             return CreatedAtAction("GetEquipoT", new { id = equipoT.Id }, equipoT);
         }
 
+        [Authorize(Roles = "Administrador")]
         // DELETE: api/Equipos/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEquipoT(int id)

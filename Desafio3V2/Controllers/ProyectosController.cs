@@ -21,7 +21,7 @@ namespace Desafio3V2.Controllers
             _context = context;
         }
 
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador,Usuario")]
         // GET: api/Proyectos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProyectoT>>> GetProyecto()
@@ -29,7 +29,7 @@ namespace Desafio3V2.Controllers
             return await _context.Proyecto.ToListAsync();
         }
 
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador,Usuario")]
         // GET: api/Proyectos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<ProyectoT>> GetProyectoT(int id)
@@ -43,7 +43,8 @@ namespace Desafio3V2.Controllers
 
             return proyectoT;
         }
-
+        
+        [Authorize(Roles = "Administrador")]
         // PUT: api/Proyectos/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -74,7 +75,8 @@ namespace Desafio3V2.Controllers
 
             return NoContent();
         }
-
+        
+        [Authorize(Roles = "Administrador")]
         // POST: api/Proyectos
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -86,6 +88,7 @@ namespace Desafio3V2.Controllers
             return CreatedAtAction("GetProyectoT", new { id = proyectoT.Id }, proyectoT);
         }
 
+        [Authorize(Roles = "Administrador")]
         // DELETE: api/Proyectos/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProyectoT(int id)

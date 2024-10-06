@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Desafio3V2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Desafio3V2.Controllers
 {
@@ -20,6 +21,7 @@ namespace Desafio3V2.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "Administrador,Usuario")]
         // GET: api/Tareas
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TareaT>>> GetTarea()
@@ -27,6 +29,7 @@ namespace Desafio3V2.Controllers
             return await _context.Tarea.ToListAsync();
         }
 
+        [Authorize(Roles = "Administrador,Usuario")]
         // GET: api/Tareas/5
         [HttpGet("{id}")]
         public async Task<ActionResult<TareaT>> GetTareaT(int id)
@@ -41,6 +44,8 @@ namespace Desafio3V2.Controllers
             return tareaT;
         }
 
+        [Authorize(Roles = "Administrador")]
+        // PUT: api/Proyectos/5
         // PUT: api/Tareas/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -72,6 +77,8 @@ namespace Desafio3V2.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = "Administrador")]
+        // PUT: api/Proyectos/5
         // POST: api/Tareas
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -83,6 +90,8 @@ namespace Desafio3V2.Controllers
             return CreatedAtAction("GetTareaT", new { id = tareaT.Id }, tareaT);
         }
 
+        [Authorize(Roles = "Administrador")]
+        // PUT: api/Proyectos/5
         // DELETE: api/Tareas/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTareaT(int id)

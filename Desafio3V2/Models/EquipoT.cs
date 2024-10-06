@@ -14,6 +14,6 @@ namespace Desafio3V2.Models
         public string Descripcion { get; set; }
 
         [JsonIgnore]
-        public List<ProyectoT> Proyectos { get; set; }
+        public List<ProyectoT>? Proyectos { get; set; }
     }
 }

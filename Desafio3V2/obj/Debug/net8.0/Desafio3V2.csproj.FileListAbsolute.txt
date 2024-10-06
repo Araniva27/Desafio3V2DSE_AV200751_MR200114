@@ -257,3 +257,4 @@ C:\Users\Manuel Araniva\Documents\Ciclo 02 2024\DSE\Laboratorio\Desafio3V2DSE_AV
 C:\Users\Manuel Araniva\Documents\Ciclo 02 2024\DSE\Laboratorio\Desafio3V2DSE_AV200751_MR200114\Desafio3V2\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\Manuel Araniva\Documents\Ciclo 02 2024\DSE\Laboratorio\Desafio3V2DSE_AV200751_MR200114\Desafio3V2\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Manuel Araniva\Documents\Ciclo 02 2024\DSE\Laboratorio\Desafio3V2DSE_AV200751_MR200114\Desafio3V2\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\Manuel Araniva\Documents\Ciclo 02 2024\DSE\Laboratorio\Desafio3V2DSE_AV200751_MR200114\Desafio3V2\obj\Debug\net8.0\Desafio3V2.sourcelink.json
